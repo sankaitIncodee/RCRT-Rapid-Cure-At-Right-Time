@@ -1,8 +1,5 @@
 # RCRT — Rapid Cure At Right Time
 
-Team NOVAMIND · NAVDHARA 2026
-
-**Hackathon demonstration only. Fictional providers and records. No real emergency services are contacted. For an actual emergency in India, call 112.** No IoT or physical sensors.
 
 ## Implemented through Phase 6
 
