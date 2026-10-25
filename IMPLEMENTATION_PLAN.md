@@ -1,0 +1,13 @@
+# RCRT implementation plan
+
+All interfaces use the same Express API, PostgreSQL database, and authenticated Socket.IO server. No hardware integrations or real dispatch providers.
+
+1. **Foundation (implemented):** npm workspaces; React/TypeScript/Tailwind; Express/TypeScript; Prisma schema and initial SQL migration; fictional seed data; cookie sessions; patient registration; role and organization authorization; six role page shells; authentication tests and setup instructions.
+2. **Emergency reporting (implemented):** patient and anonymous bystander SOS, distinct incident/reporter locations, GPS/manual map, 15-second MediaRecorder, protected database attachments, idempotency and limited secure tracking; operator creation alerts, initial timeline and real PostgreSQL/browser tests.
+3. **Coordination (implemented):** operator overview/filters/priority/notes and duplicate flags; transactional pending/accepted/declined assignments; protected crew views; GPS watch sharing; backend-driven simulation and limited live tracking; persisted patient-reached confirmation and concurrent-dispatch tests.
+4. **Assessment and hospital discovery (implemented):** protected drafts/completion/edits, optional vitals, equipment priorities, specialist availability, explainable requirements-first matching, hospital filters/map and preferred selection without admission/reservations; private medical events and PostgreSQL/browser tests.
+5. **Hospital response (implemented):** admission snapshots, persistent alerts and explicit audio enablement, hospital acceptance/rejection/cancellation, transactional resource reservations, preparation tasks, persistent transport simulation/GPS, crew-confirmed hospital arrival and hospital-confirmed handover. Isolated database concurrency/security tests and four-role browser workflows cover success and rejection/reselection.
+6. **Final integration and demo readiness (implemented):** security/error/session hardening, shared socket/read coalescing, paginated admissions, accessible dialogs, responsive design, lazy pages, isolated judge demo, measured performance and complete Edge/Chrome regression verification. No development reset, real-service integration or automatic clinical decision.
+7. **Deployment (awaiting approval):** hosting, HTTPS/proxy/WebSocket setup, production secrets/database/backups, monitoring and deployment-specific verification. See DEPLOYMENT_READINESS.md; nothing has been deployed.
+
+Phase 6 was explicitly authorized and implemented within the existing project. Its order was: audit/baseline → security/reliability → shared UI and responsive workspaces → measured optimization → isolated demo → full verification/documentation. Stop after the Phase 6 report. Phase 7 requires approval.

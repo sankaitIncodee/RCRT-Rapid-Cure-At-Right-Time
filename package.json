@@ -1,0 +1,51 @@
+{
+  "name": "rcrt",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "check": "npm run check --workspaces && tsc -p tsconfig.tools.json",
+    "test": "npm run test -w server",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "lint": "eslint client/src server/src prisma/seed.ts tests scripts",
+    "test:integration": "tsx scripts/integration-test.ts",
+    "test:e2e": "tsx scripts/browser-test.ts",
+    "db:local": "tsx scripts/local-database.ts",
+    "demo:prepare": "tsx scripts/demo.ts prepare",
+    "demo": "tsx scripts/demo.ts",
+    "measure": "tsx scripts/performance-probe.ts",
+    "demo:lan": "tsx scripts/lan-demo.ts",
+    "demo:lan:addresses": "tsx scripts/lan-demo.ts --addresses",
+    "test:lan": "tsx scripts/lan-verification.ts"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.1",
+    "concurrently": "^9.2.0",
+    "embedded-postgres": "^18.4.0-beta.17",
+    "eslint": "^10.13.0",
+    "prisma": "6.19.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.72.0"
+  },
+  "dependencies": {
+    "@prisma/client": "6.19.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.0"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.0",
+    "effect": "^3.20.0"
+  },
+  "type": "module"
+}

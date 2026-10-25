@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: rcrt
+      POSTGRES_PASSWORD: rcrt_local_only
+      POSTGRES_DB: rcrt
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - rcrt_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rcrt"]
+      interval: 5s
+      retries: 10
+volumes:
+  rcrt_data:
